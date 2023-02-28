@@ -15,29 +15,29 @@
 <body id="app">
     <div class="jumbotron jumbotron-fluid" style="text-align: center;">
         <h1>String Manipulation</h1>
-        <input type="text" v-model="word" id="input" placeholder="Type word here...">
+        <input  type="text" v-model="word" id="input" placeholder="Type word here...">
         <button  class="btn btn-success" @click="save(word)" id="save">Show it</button>
     </div>
     <div class="container">
         <div v-if="result.length" class="row">
             <div class="col-sm-6">
                 <ol>
-                    <li>
+                    <li id="wordNormal">
                         {{result[0]}}
                     </li>
-                    <li>
+                    <li id="wordToUpper">
                         {{result[1]}}
                     </li>
-                    <li>
+                    <li id="wordToLower">
                         {{result[2]}}
                     </li>
-                    <li>
+                    <li id="wordFirstLetterUpper">
                         {{result[3]}}
                     </li>
-                    <li>
+                    <li id="wordLastLetterUpper">
                         {{result[4]}}
                     </li>
-                    <li>
+                    <li id="wordBackwards">
                         {{result[5]}}
                     </li>
                 </ol>
