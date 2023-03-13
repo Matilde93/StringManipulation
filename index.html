@@ -12,63 +12,42 @@
     <title>String Manipulation</title>
 </head>
 
-<body id="app">
-    <div class="jumbotron jumbotron-fluid" style="text-align: center;">
-        <h1>String Manipulation</h1>
-        <input  type="text" v-model="word" id="input" placeholder="Type word here...">
-        <button  class="btn btn-success" @click="save(word)" id="save">Show it</button>
-    </div>
-    <div class="container">
-        <div v-if="result.length" class="row">
-            <div class="col-sm-6">
-                <ol>
-                    <li id="wordNormal">
-                        {{result[0]}}
-                    </li>
-                    <li id="wordToUpper">
-                        {{result[1]}}
-                    </li>
-                    <li id="wordToLower">
-                        {{result[2]}}
-                    </li>
-                    <li id="wordFirstLetterUpper">
-                        {{result[3]}}
-                    </li>
-                    <li id="wordLastLetterUpper">
-                        {{result[4]}}
-                    </li>
-                    <li id="wordBackwards">
-                        {{result[5]}}
-                    </li>
-                </ol>
-            </div>
+<body>
 
-            <div class="col-sm-6">
-                <table class="table table-striped">
-                    <tbody>
-                        <tr>
-                            <td>{{result[0]}}</td>
-                        </tr>
-                        <tr>
-                            <td>{{result[1]}}</td>
-                        </tr>
-                        <tr>
-                            <td>{{result[2]}}</td>
-                        </tr>
-                        <tr>
-                            <td>{{result[3]}}</td>
-                        </tr>
-                        <tr>
-                            <td>{{result[4]}}</td>
-                        </tr>
-                        <tr>
-                            <td>{{result[5]}}</td>
-                        </tr>
-                    </tbody>
-                </table>
+
+    <div id="app">
+        <div class="jumbotron jumbotron-fluid" style="text-align: center;">
+            <h1>String Manipulation</h1>
+            <input type="text" v-model="word" id="input" placeholder="Type word here...">
+            <button class="btn btn-success" @click="save(word)" id="save">Show it</button>
+        </div>
+        <div class="container">
+
+            <div v-if="error" style="color: red;">{{error}}</div>
+
+            <div v-if="words.length > 0" class="row">
+                <div class="col-sm-6">
+                    <ol v-for="wo in words">
+                        <li>
+                            {{wo}}
+                        </li>
+
+                    </ol>
+                </div>
+
+                <div class="col-sm-6">
+                    <table class="table table-striped">
+                        <tbody v-if="words.length > 0">
+                            <tr v-for="wo in words">
+                                <td>{{wo}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
+
     <script src="index.js"></script>
 </body>
 
